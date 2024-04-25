@@ -1,8 +1,14 @@
-This project is to automate repetative task in applying job
+# Naukri.com-auto-job-applier
+
+## Project Overview
+
+This project automates the repetitive task of applying for jobs on Naukri.com. It scrapes job listings, stores them in a SQL database, and automatically applies to each job then updates its status in database.
 
 
+## Database Schema
+query to create table
 
-query to create required SQL database - 
+```
 CREATE TABLE jobs (
     job_id VARCHAR(255) NOT NULL PRIMARY KEY,
     status VARCHAR(255),
@@ -15,13 +21,14 @@ CREATE TABLE jobs (
     job_link VARCHAR(512),
     timestamp TIMESTAMP
 );
+```
 
+## .env File Configuration
 
-
-.env file needs to be created in components in following format:
-
+Create a .env file in the components directory with the following format:
+- search your job on naukri.com with required filters and devide the link like below with '?' in link as split point `or just write code for it (am lazy)`
+```
 # job search links
-# search your job on naukri.com with required filters and devide the link like below with '?' in link as split point or just write code for it (am lazy)
 LINK_PART_1 = "https://www.naukri.com/java-jobs-in-mumbai"
 LINK_PART_2 = "?experience=0"
 
@@ -34,16 +41,22 @@ DB_HOST = *mysql host (mostly localhost if using local data)*
 DB_USER = *mysql user (mostly root)*
 DB_PASSWORD = *mysql password*
 DB_NAME = *database name*
+```
+
+## pip packages required -
+```pip install selenium python-dotenv mysql-connector-python pygame```
 
 
-run new_scraper.py first it will create database of job links
-then run naukri.com-job-applier.py this will loop over each record and apply each job
+## Usage
 
-every time naukri.com asks extra questions while applying a job on platform it will play notification.mp3 in assets folder
-you need to manually enter data and click save/next, program will wait for you to do so
+- Run job_scraper.py to create a database of job links.
+- Run job_applier.py to loop over each record and apply to each job.
+- Every time naukri.com asks extra questions while applying a job on platform it will play notification.mp3 in assets folder.
+- When prompted, manually enter any additional information required by Naukri.com during the application process.
+- If some job postings require visiting the company website to apply, mark them as "applied" manually in the database. `job-id from naukri.com is primary key in database`
 
-one a job is applied status of that job in database will change to "applied"
+## Additional Notes
 
-some job posting require visiting company website in order to apply 
-these will be marked as "apply on company site" as status in database
-you need to manually visit these sites and mark them as "applied"
+- If Naukri.com asks additional questions during the application process, notification.mp3 in the assets folder will play, indicating that manual input is required.
+- Some job postings may require visiting the company website to apply. These will be marked as "apply on company site" in the database.
+

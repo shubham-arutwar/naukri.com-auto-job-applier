@@ -11,7 +11,7 @@ from datetime import datetime
 import os
 import time
 import mysql.connector
-from components.dbConnection import connection
+from components.db_connector import connection
 
 load_dotenv()
 options = Options()

@@ -2,8 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import mysql.connector
 from components.login import login_to_naukri
-from components.dbConnection import connection
-from components.jobFilter import process_jobs
+from components.db_connector import connection
+from components.job_filter import process_jobs
 
 options = Options()
 options.binary_location = "C:/Program Files/Mozilla Firefox/firefox.exe"

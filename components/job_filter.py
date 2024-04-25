@@ -1,4 +1,4 @@
-from components.applyJobs import apply_to_job
+from components.job_applier import apply_to_job
 
 def process_jobs(driver, db_connection):
     try:
@@ -11,4 +11,4 @@ def process_jobs(driver, db_connection):
         print("Error processing jobs:", e)
     finally:
         cursor.close()
-    #apply_to_job(driver, db_connection, "https://www.naukri.com/job-listings-python-developer-nexpro247-mumbai-pune-chennai-0-to-5-years-040424005950")
+    # apply_to_job(driver, db_connection, "https://www.naukri.com/job-listings-software-engineer-developer-programmer-2024-graduate-can-also-appl-creative-hands-hr-noida-nagpur-pune-gurgaon-gurugram-delhi-ncr-mumbai-all-areas-0-to-2-years-090224005442")

@@ -3,8 +3,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import time
-from components.dbConnection import update_status
-from components.notificationSound import bruh
+from components.db_connector import update_status
+from components.notification_sound import notification_play
 
 def apply_to_job(driver, db_connection, job_link):
     try:
@@ -20,9 +20,9 @@ def apply_to_job(driver, db_connection, job_link):
             time.sleep(2)
             chatbot_present = driver.find_elements(By.CLASS_NAME, "chatbot_DrawerContentWrapper")
             while chatbot_present:
-                bruh()
+                notification_play()
                 time.sleep(1)
-                print("while loop 5 sec sleep ends")
+                print("waiting for user input on website")
                 chatbot_present = driver.find_elements(By.CLASS_NAME, "chatbot_DrawerContentWrapper")
             if not driver.find_elements(By.CLASS_NAME, "chatbot_DrawerContentWrapper"):
                 success_message = WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.XPATH, "//span[@class='apply-message']")))
