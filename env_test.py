@@ -1,5 +1,5 @@
 import os
 from dotenv import load_dotenv
-load_dotenv()
+from playsound import playsound
 
-print(os.getenv("EMAIL_ID"))
+playsound('./components/bruh-sound-effect-2-37927.mp3')
