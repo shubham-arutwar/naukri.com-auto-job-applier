@@ -41,6 +41,9 @@ DB_HOST = *mysql host (mostly localhost if using local data)*
 DB_USER = *mysql user (mostly root)*
 DB_PASSWORD = *mysql password*
 DB_NAME = *database name*
+
+# keywords for job title filtering
+JOB_TITLE= *write keywords for job title that you want to apply to eg-(java,python,analyst) --without ()--*
 ```
 
 ## pip packages required -
