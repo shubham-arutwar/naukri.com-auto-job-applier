@@ -28,7 +28,6 @@ def scrape_page(driver, db_connection):
             timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             try:
                 job_id = job_tuple.get_attribute('data-job-id')
-                # Check if the record already exists in the database
                 cursor.execute("SELECT job_id FROM jobs WHERE job_id = %s", (job_id,))
                 existing_record = cursor.fetchone()
                 if existing_record:
@@ -47,8 +46,8 @@ def scrape_page(driver, db_connection):
             except NoSuchElementException as e:
                 print("Some details may not be scraped")  #, e)
                 continue
-            sql = "INSERT INTO jobs (job_id, status, job_title, company, experience, salary, location, description, job_link, timestamp) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            val = (job_id, "not applied", job_title, company, experience, salary, location, description, job_link, timestamp)
+            sql = "INSERT INTO jobs (job_id, status, job_title, company, experience, salary, location, description, job_link, timestamp, platform) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            val = (job_id, "not applied", job_title, company, experience, salary, location, description, job_link, timestamp, "Naukri.com")
             cursor.execute(sql, val)
         db_connection.commit()
         print("Recorded in the database")

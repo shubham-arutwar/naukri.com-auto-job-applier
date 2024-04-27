@@ -1,5 +1,10 @@
 # Naukri.com-auto-job-applier
 
+## DISCLAIMER
+There is a daily limit on the number of jobs you can apply for, typically capped at around 50 easy apply and 50 'on company site'.
+`There was an error while processing your request, please try again later`
+message will appear on websites when you hit the limit.
+
 ## Project Overview
 
 This project automates the repetitive task of applying for jobs on Naukri.com. It scrapes job listings, stores them in a SQL database, and automatically applies to each job then updates its status in database.
@@ -19,7 +24,8 @@ CREATE TABLE jobs (
     location VARCHAR(255),
     description TEXT,
     job_link VARCHAR(512),
-    timestamp TIMESTAMP
+    timestamp TIMESTAMP,
+    platform VARCHAR(255)
 );
 ```
 
