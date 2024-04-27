@@ -43,7 +43,9 @@ DB_PASSWORD = *mysql password*
 DB_NAME = *database name*
 
 # keywords for job title filtering
-JOB_TITLE= *write keywords for job title that you want to apply to eg-(java,python,analyst) --without ()--*
+POSITIVE_JOB_TITLE_KEYWORDS= *write keywords for job title that you want to apply | constrains : without (), all lower, no spaces | eg-(java,python,analyst)*
+NEGATIVE_JOB_TITLE_KEYWORDS= *write keywords for job title that you ABSOLUTELY DON'T want to apply | constrains : without (), all lower, no spaces | eg-(testing,devops)*
+# logic is in ./components/job_filter.py
 ```
 
 ## pip packages required -

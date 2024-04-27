@@ -19,4 +19,5 @@ except mysql.connector.Error as error:
 finally:
     if 'db_connection' in locals() or 'db_connection' in globals():
         db_connection.close()
+        print("---END---")
     driver.quit()
